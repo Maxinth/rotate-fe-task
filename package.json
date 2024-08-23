@@ -1,5 +1,5 @@
 {
-  "name": "my-turborepo",
+  "name": "rte-apps",
   "private": true,
   "scripts": {
     "build": "turbo build",
