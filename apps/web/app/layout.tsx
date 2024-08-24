@@ -6,6 +6,7 @@ import { Providers } from "./providers";
 import Sidebar from "../components/sidebar";
 import Header from "../components/header";
 import { Box, Flex } from "@chakra-ui/react";
+import { useReportWebVitals } from "next/web-vitals";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -26,6 +27,9 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  useReportWebVitals((metric) => {
+    console.log(metric);
+  });
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
