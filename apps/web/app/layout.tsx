@@ -1,7 +1,11 @@
+"use client";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { Providers } from "./providers";
+import Sidebar from "../components/sidebar";
+import Header from "../components/header";
+import { Box, Flex } from "@chakra-ui/react";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -25,7 +29,24 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <Providers>{children}</Providers>
+        <Providers>
+          <Flex justifyContent={"space-between"} width={"100vw"}>
+            <Sidebar />
+
+            <Flex
+              width={"100%"}
+              flex={1}
+              justifyContent={"flex-end"}
+              alignItems={"flex-end"}
+              flexDirection={"column"}
+            >
+              <Header />
+              <Box w="80%" alignSelf={"flex-end"} mt="90px">
+                {children}
+              </Box>
+            </Flex>
+          </Flex>
+        </Providers>
       </body>
     </html>
   );
